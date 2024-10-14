@@ -30,7 +30,7 @@ export default function Header() {
   };
 
   return (
-    <nav className="border-b-2 dark:border-slate-800 flex justify-between p-3">
+    <nav className="border-b-2 dark:border-slate-950 flex justify-between p-3 dark:bg-gray-800 ">
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
@@ -51,9 +51,13 @@ export default function Header() {
         </Button>
 
         {currentUser ? (
-            <Button gradientDuoTone="purpleToBlue" outline onClick={handleSignOut}>
-              Sign Out
-            </Button>
+          <Button
+            gradientDuoTone="purpleToBlue"
+            outline
+            onClick={handleSignOut}
+          >
+            Sign Out
+          </Button>
         ) : (
           <Link to="/sign-in">
             <Button gradientDuoTone="purpleToBlue" outline>
