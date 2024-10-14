@@ -46,7 +46,7 @@ export default function ChildOverview() {
     datasets: [
       {
         data: [totalRegistered, totalActive, totalInactive],
-        backgroundColor: ["#D2B48C", "#FFA500", "#FFDAB9"],
+        backgroundColor: ["#8B4000", "#FF7F50", "#F88379"],
         hoverOffset: 4,
       },
     ],
@@ -62,7 +62,7 @@ export default function ChildOverview() {
   };
 
   return (
-    <div className="flex-wrap w-full max-w-sm mx-auto p-5 bg-white border border-gray-300 rounded-lg shadow-lg">
+    <div className="flex-wrap w-full max-w-sm mx-auto p-5 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg">
       <div className="flex justify-between">
         <div className="flex text-black">
           <span className="py-1 px-1">
@@ -113,7 +113,7 @@ export default function ChildOverview() {
           <div className="text-center">
             <div
               className="w-2 h-2 rounded-full mb-1 mx-auto"
-              style={{ backgroundColor: "#D2B48C" }}
+              style={{ backgroundColor: "#8B4000" }}
             />
             <p className="text-sm text-gray-400">Registered</p>
             <p className="text-lg font-bold text-gray-800">{totalRegistered}</p>
@@ -121,7 +121,7 @@ export default function ChildOverview() {
           <div className="text-center">
             <div
               className="w-2 h-2 rounded-full mb-1 mx-auto"
-              style={{ backgroundColor: "#FFA500" }}
+              style={{ backgroundColor: "#FF7F50" }}
             />
             <p className="text-sm text-gray-400">Active</p>
             <p className="text-lg font-bold text-gray-800">{totalActive}</p>
@@ -129,7 +129,7 @@ export default function ChildOverview() {
           <div className="text-center">
             <div
               className="w-2 h-2 rounded-full mb-1 mx-auto"
-              style={{ backgroundColor: "#FFDAB9" }}
+              style={{ backgroundColor: "#F88379" }}
             />
             <p className="text-sm text-gray-400">Inactive</p>
             <p className="text-lg font-bold text-gray-800">{totalInactive}</p>
