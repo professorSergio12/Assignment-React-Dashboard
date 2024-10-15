@@ -37,15 +37,14 @@ export default function FinanceOverview() {
   const profitMargin = data?.profitMargin || 0;
 
   return (
-    <div className="flex-wrap w-full max-w-sm mx-auto p-5 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg">
-      <div className="flex justify-between">
-        <div className="flex text-black">
+    <div className="flex-wrap w-full max-w-sm mx-auto p-3 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg">
+      <div className="flex justify-between items-center">
+        <div className="flex text-black font-semibold">
           <span className="py-1 px-1">
             <BiDollarCircle />
           </span>
           Financial Overview
         </div>
-        <div></div>
       </div>
       <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-300" />
 
@@ -107,9 +106,9 @@ export default function FinanceOverview() {
         </div>
       </div>
 
-      <div className=" bg-slate-200 border-2 rounded-md p-2">
+      <div className=" bg-slate-200 border-2 rounded-md p-1">
         <div className="flex justify-between ">
-          <div className="flex text-slate-600 font-bold">
+          <div className="flex text-slate-600 font-bold lg:font-semibold">
             <span className="p-1">
               <FaInfoCircle />
             </span>
