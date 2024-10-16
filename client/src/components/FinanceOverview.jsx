@@ -37,9 +37,9 @@ export default function FinanceOverview() {
   const profitMargin = data?.profitMargin || 0;
 
   return (
-    <div className="flex-wrap w-full max-w-sm mx-auto p-3 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg">
+    <div className="flex-wrap w-full max-w-sm mx-auto p-3 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg dark:bg-[#28282B]">
       <div className="flex justify-between items-center">
-        <div className="flex text-black font-semibold">
+        <div className="flex text-black font-semibold dark:text-white">
           <span className="py-1 px-1">
             <BiDollarCircle />
           </span>
@@ -56,12 +56,14 @@ export default function FinanceOverview() {
               className="w-2.5 h-2.5 border-3  rounded-full mr-2"
               style={{ backgroundColor: "#8B4000" }}
             ></div>
-            <span className="text-sm font-semibold text-black">
+            <span className="text-sm font-semibold text-black ">
               Total Revenue
             </span>
           </div>
-          <p className="text-2xl font-bold text-black">${revenue}</p>
-          <p className="text-sm text-gray-400">Last 30 days</p>
+          <p className="text-2xl font-bold text-black dark:text-white">
+            ${revenue}
+          </p>
+          <p className="text-sm text-gray-400 dark:text-white">Last 30 days</p>
         </div>
 
         {/* Profit Margin */}
@@ -75,8 +77,10 @@ export default function FinanceOverview() {
               Profit Margin
             </span>
           </div>
-          <p className="text-2xl font-bold text-black">{profitMargin}%</p>
-          <p className="text-sm text-gray-400">Last 30 days</p>
+          <p className="text-2xl font-bold text-black dark:text-white">
+            {profitMargin}%
+          </p>
+          <p className="text-sm text-gray-400 dark:text-white">Last 30 days</p>
         </div>
 
         {/* Income */}
@@ -88,8 +92,10 @@ export default function FinanceOverview() {
             ></div>
             <span className="text-sm font-semibold text-black">Income</span>
           </div>
-          <p className="text-2xl font-bold text-black">${income}</p>
-          <p className="text-sm text-gray-400">Last 30 days</p>
+          <p className="text-2xl font-bold text-black dark:text-white">
+            ${income}
+          </p>
+          <p className="text-sm text-gray-400 dark:text-white">Last 30 days</p>
         </div>
 
         {/* Total Expenses */}
@@ -101,8 +107,10 @@ export default function FinanceOverview() {
             ></div>
             <span className="text-sm font-semibold text-black">Expenses</span>
           </div>
-          <p className="text-2xl font-bold text-black">${expenses}</p>
-          <p className="text-sm text-gray-400">Last 30 days</p>
+          <p className="text-2xl font-bold text-black dark:text-white">
+            ${expenses}
+          </p>
+          <p className="text-sm text-gray-400 dark:text-white">Last 30 days</p>
         </div>
       </div>
 

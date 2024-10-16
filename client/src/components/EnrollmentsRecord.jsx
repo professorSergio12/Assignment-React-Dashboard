@@ -106,9 +106,9 @@ export default function EnrollmentsRecord() {
   };
 
   return (
-    <div className="flex flex-col w-full h-full p-5 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg">
+    <div className="flex flex-col w-full h-full p-5 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg dark:bg-[#28282B]">
       <div className="flex justify-between">
-        <div className="flex text-black font-semibold">
+        <div className="flex text-black font-semibold dark:text-white">
           <span className="py-1 px-1">
             <BsFillPersonPlusFill />
           </span>
@@ -135,7 +135,7 @@ export default function EnrollmentsRecord() {
       <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-300" />
 
       {loading ? (
-        <p className="text-center text-gray-500">Loading...</p>
+        <p className="text-center text-gray-500 dark:text-white">Loading...</p>
       ) : error ? (
         <p className="text-center text-red-500">Failed to load data.</p>
       ) : data.length > 0 ? (

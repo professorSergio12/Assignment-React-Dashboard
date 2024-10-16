@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { BsCalendar2DateFill } from "react-icons/bs";
-import {Button} from "flowbite-react"
+import { Button } from "flowbite-react";
 import { TfiStatsUp } from "react-icons/tfi";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
+import { useSelector } from "react-redux";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
@@ -11,6 +12,7 @@ export default function AttendanceTracking() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const isDarkMode = useSelector((state) => state.theme.theme);
 
   const fetchData = async (year) => {
     setLoading(true);
@@ -64,12 +66,15 @@ export default function AttendanceTracking() {
       const { width, height, ctx } = chart;
       ctx.restore();
 
+      // Set the text color based on the theme (using Redux dark mode state)
+      const textColor = isDarkMode === "dark" ? "#FFF" : "#000";
+
       // Display the total at the top
       const totalText = `${total}`;
       const totalTextFontSize = (height / 100).toFixed(0);
       ctx.font = `${totalTextFontSize}em sans-serif`;
       ctx.textBaseline = "middle";
-      ctx.fillStyle = "#000";
+      ctx.fillStyle = textColor; // Use dynamic color for total text
 
       const totalTextX = Math.round(
         (width - ctx.measureText(totalText).width) / 2
@@ -82,6 +87,7 @@ export default function AttendanceTracking() {
       const totalLabel = "/2000";
       const labelTextFontSize = (height / 300).toFixed(2);
       ctx.font = `${labelTextFontSize}em sans-serif`;
+      ctx.fillStyle = textColor; // Use dynamic color for total label
 
       const labelTextX = Math.round(
         (width - ctx.measureText(totalLabel).width) / 2
@@ -104,16 +110,18 @@ export default function AttendanceTracking() {
   };
 
   return (
-    <div className="flex-wrap w-full max-w-sm mx-auto p-5 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg">
+    <div className="flex-wrap w-full max-w-sm mx-auto p-5 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg dark:bg-[#28282B]">
       <div className="flex justify-between">
-        <div className="flex text-black font-semibold">
+        <div className="flex text-black font-semibold dark:text-white">
           <span className="py-1 px-1">
             <BsCalendar2DateFill />
           </span>
           Attendance
         </div>
         <div className="border-2 rounded-md">
-         <button className="text-black font-medium p-1">View Stats</button>
+          <button className="text-black font-medium p-1  dark:text-white">
+            View Stats
+          </button>
         </div>
       </div>
       <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-300" />
@@ -142,10 +150,10 @@ export default function AttendanceTracking() {
                 className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: "#7F00FF" }}
               ></div>
-              <p className="text-lg font-bold text-gray-800 px-1">
+              <p className="text-lg font-bold text-gray-800 px-1  dark:text-white">
                 {totalOnTime}
               </p>
-              <p className="text-sm text-gray-400">on time</p>
+              <p className="text-sm text-gray-400  dark:text-white">on time</p>
             </div>
 
             {/* late attendance */}
@@ -154,10 +162,12 @@ export default function AttendanceTracking() {
                 className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: "#D70040" }}
               ></div>
-              <p className="text-lg font-bold text-gray-800 px-1">
+              <p className="text-lg font-bold text-gray-800 px-1  dark:text-white">
                 {totalLate}
               </p>
-              <p className="text-sm text-gray-400">late attendance</p>
+              <p className="text-sm text-gray-400  dark:text-white">
+                late attendance
+              </p>
             </div>
 
             {/* take day off */}
@@ -166,10 +176,12 @@ export default function AttendanceTracking() {
                 className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: "#FF7F50" }}
               ></div>
-              <p className="text-lg font-bold text-gray-800 px-1">
+              <p className="text-lg font-bold text-gray-800 px-1  dark:text-white">
                 {totalDayOff}
               </p>
-              <p className="text-sm text-gray-400">take day off</p>
+              <p className="text-sm text-gray-400  dark:text-white">
+                take day off
+              </p>
             </div>
 
             {/* not present */}
@@ -178,15 +190,19 @@ export default function AttendanceTracking() {
                 className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: "#CBC3E3" }}
               ></div>
-              <p className="text-lg font-bold text-gray-800 px-1">
+              <p className="text-lg font-bold text-gray-800 px-1  dark:text-white">
                 {totalAbsent}
               </p>
-              <p className="text-sm text-gray-400">not present</p>
+              <p className="text-sm text-gray-400  dark:text-white">
+                not present
+              </p>
             </div>
           </div>
         </>
       ) : (
-        <p className="text-center text-gray-500">No data available</p>
+        <p className="text-center text-gray-500  dark:text-white">
+          No data available
+        </p>
       )}
 
       <div className=" bg-green-200 border-green-400 rounded-md p-1">

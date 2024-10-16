@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdChildCare } from "react-icons/md";
 import { Doughnut } from "react-chartjs-2";
+import { useSelector } from "react-redux";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
@@ -10,6 +11,7 @@ export default function ChildOverview() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true); // Add loading state
   const [selectedYear, setSelectedYear] = useState("2023");
+  const isDarkMode = useSelector((state) => state.theme.theme);
 
   const fetchData = async (year) => {
     setLoading(true); // Start loading when fetching data
@@ -67,11 +69,12 @@ export default function ChildOverview() {
       const { width, height, ctx } = chart;
       ctx.restore();
 
+      const textColor = isDarkMode === "dark" ? "#FFF" : "#000";
       const labelText = "TOTAL";
       const labelTextFontSize = (height / 300).toFixed(2);
       ctx.font = `${labelTextFontSize}em sans-serif`;
       ctx.textBaseline = "middle";
-      ctx.fillStyle = "#000";
+      ctx.fillStyle = textColor;
 
       const labelTextX = Math.round(
         (width - ctx.measureText(labelText).width) / 2
@@ -83,6 +86,7 @@ export default function ChildOverview() {
       const totalText = `${total}`;
       const totalTextFontSize = (height / 100).toFixed(0);
       ctx.font = `${totalTextFontSize}em sans-serif`;
+      ctx.fillStyle = textColor;
 
       const totalTextX = Math.round(
         (width - ctx.measureText(totalText).width) / 2
@@ -107,9 +111,9 @@ export default function ChildOverview() {
   };
 
   return (
-    <div className="flex-wrap w-full max-w-sm mx-auto p-5 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg">
+    <div className="flex-wrap w-full max-w-sm mx-auto p-5 bg-[#F5F5F5] border border-gray-300 rounded-lg shadow-lg dark:bg-[#28282B]">
       <div className="flex justify-between">
-        <div className="flex text-black font-semibold">
+        <div className="flex text-black font-semibold dark:text-white">
           <span className="py-1 px-1">
             <MdChildCare />
           </span>
@@ -136,7 +140,7 @@ export default function ChildOverview() {
       <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-300" />
 
       {loading ? (
-        <p className="text-center text-gray-500">Loading...</p>
+        <p className="text-center text-gray-500 dark:text-white">Loading...</p>
       ) : error ? (
         <p className="text-center text-red-500">Failed to load data.</p>
       ) : data.length > 0 ? (
@@ -158,8 +162,8 @@ export default function ChildOverview() {
                 className="w-2 h-2 rounded-full mb-1 mx-auto"
                 style={{ backgroundColor: "#8B4000" }}
               />
-              <p className="text-sm text-gray-400">Registered</p>
-              <p className="text-lg font-bold text-gray-800">
+              <p className="text-sm text-gray-400 dark:text-white">Registered</p>
+              <p className="text-lg font-bold text-gray-800 dark:text-white">
                 {totalRegistered}
               </p>
             </div>
@@ -168,16 +172,16 @@ export default function ChildOverview() {
                 className="w-2 h-2 rounded-full mb-1 mx-auto"
                 style={{ backgroundColor: "#FF7F50" }}
               />
-              <p className="text-sm text-gray-400">Active</p>
-              <p className="text-lg font-bold text-gray-800">{totalActive}</p>
+              <p className="text-sm text-gray-400 dark:text-white">Active</p>
+              <p className="text-lg font-bold text-gray-800 dark:text-white">{totalActive}</p>
             </div>
             <div className="text-center">
               <div
                 className="w-2 h-2 rounded-full mb-1 mx-auto"
                 style={{ backgroundColor: "#F88379" }}
               />
-              <p className="text-sm text-gray-400">Inactive</p>
-              <p className="text-lg font-bold text-gray-800">{totalInactive}</p>
+              <p className="text-sm text-gray-400 dark:text-white">Inactive</p>
+              <p className="text-lg font-bold text-gray-800 dark:text-white">{totalInactive}</p>
             </div>
           </div>
         </>
