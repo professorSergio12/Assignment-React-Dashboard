@@ -32,7 +32,6 @@ export default function Header() {
   return (
     <nav className="border-b-2 dark:border-slate-950 flex justify-between p-3 dark:bg-gray-800 ">
       <Link
-        to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
         <span className="px-2 py-1 bg-gradient-to-r from-red-500 via-orange-500 to-pink-500 rounded-lg text-white">
