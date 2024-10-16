@@ -55,6 +55,7 @@ To get started with the Dashboard project, follow these steps:
 5. Create a .env file in the root directory and add your MongoDB connection string:
 ```
 DATABASE_URL=<your_mongodb_connection_string>
+JWT_SECRET=<your_secret_key>
 ```
 6. Start the development server:
   ```
