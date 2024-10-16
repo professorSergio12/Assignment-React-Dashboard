@@ -49,6 +49,7 @@ To get started with the Dashboard project, follow these steps:
 4.Navigate to the client directory and install frontend dependencies:
  ```
   cd client
+  npm install
 ```
 
 5. Create a .env file in the root directory and add your MongoDB connection string:
