@@ -67,7 +67,7 @@ export default function AttendanceTracking() {
       ctx.restore();
 
       // Set the text color based on the theme (using Redux dark mode state)
-      const textColor = isDarkMode === "dark" ? "#FFF" : "#000";
+      const textColor = "#518bbb"
 
       // Display the total at the top
       const totalText = `${total}`;
