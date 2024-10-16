@@ -46,10 +46,10 @@ export default function Dashboard() {
           <FinancialOverview />
         </div>
 
-        <div className="lg:col-span-1 md:col-span-1 sm:col-span-1">
+        <div className="lg:col-span-1 md:col-span-2 sm:col-span-1">
           <AttendanceTracking />
         </div>
-        <div className="lg:col-span-1 md:col-span-2 sm:col-span-1">
+        <div className="lg:col-span-2 md:col-span-2 sm:col-span-1">
           <EnrollmentsRecord />
         </div>
       </Suspense>

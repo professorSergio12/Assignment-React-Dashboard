@@ -51,7 +51,7 @@ export default function AttendanceTracking() {
     datasets: [
       {
         data: [totalOnTime, totalLate, totalDayOff, totalAbsent],
-        backgroundColor: ["#7F00FF", "#8B4000", "#FF7F50", "#CBC3E3"],
+        backgroundColor: ["#7F00FF", "#D70040", "#FF7F50", "#CBC3E3"],
         hoverOffset: 4,
         borderWidth: 1,
       },
@@ -152,7 +152,7 @@ export default function AttendanceTracking() {
             <div className="flex items-center">
               <div
                 className="w-2 h-2 rounded-full"
-                style={{ backgroundColor: "#8B4000" }}
+                style={{ backgroundColor: "#D70040" }}
               ></div>
               <p className="text-lg font-bold text-gray-800 px-1">
                 {totalLate}
@@ -190,7 +190,7 @@ export default function AttendanceTracking() {
       )}
 
       <div className=" bg-green-200 border-green-400 rounded-md p-1">
-        <div className="flex justify-between ">
+        <div className="flex justify-between">
           <div className="flex text-green-500 font-medium lg:font-semibold">
             <span className="p-1">
               <TfiStatsUp />
