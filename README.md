@@ -46,10 +46,10 @@ To get started with the Dashboard project, follow these steps:
    ```
    npm install
    ```
-4.Navigate to the client directory and install frontend dependencies:
+4. Navigate to the client directory and install frontend dependencies:
    ```
-    cd client
-    npm install
+   cd client
+   npm install
    ```
 
 5. Create a .env file in the root directory and add your MongoDB connection string:
@@ -61,6 +61,7 @@ To get started with the Dashboard project, follow these steps:
   ```
   npm run dev
   ```
+
 This will start the backend server using Nodemon ans do same for cleint  side.
 
 ### Usage
