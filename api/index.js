@@ -25,19 +25,21 @@ mongoose
     console.log("Error occurred while connecting to the database:", err);
   });
 
-app.listen(3000, () => {
-  console.log("Server is successfull started");
-});
 
 const __dirname = path.resolve();
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 
+
 app.use(express.static(path.join(__dirname, "/client/dist")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
+
+app.listen(3000, () => {
+  console.log("Server is successfull started");
 });
 
 app.use((err, req, res, next) => {
