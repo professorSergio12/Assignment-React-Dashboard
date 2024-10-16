@@ -66,7 +66,7 @@ export default function CareGiver() {
       const { width, height, ctx } = chart;
       ctx.restore();
 
-      const textColor = isDarkMode === "dark" ? "#FFF" : "#000";
+      const textColor = "#518bbb"
       const labelText = "TOTAL";
       const labelTextFontSize = (height / 300).toFixed(2);
       ctx.font = `${labelTextFontSize}em sans-serif`;
