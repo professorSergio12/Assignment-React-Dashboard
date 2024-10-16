@@ -69,19 +69,20 @@ This will start the backend server using Nodemon ans do same for cleint  side.
 - Use the authentication features to log in or sign up.
 - Explore the enrollment statistics and other features available in the dashboard.
 
-  ### API Endpoints
+### API Endpoints
+
 Authentication Routes
-POST /api/auth/signin: Login a user.
-POST /api/auth/signup: Register a new user.
+- POST /api/auth/signin: Login a user.
+- POST /api/auth/signup: Register a new user.
 
 User Routes: 
-GET /api/user/dashboard/ChildOverview: Get enrollment statistics for a specific year.
-GET /api/user/dashboard/CareGiverOverview: Get enrollment statistics for a specific year.
-GET /api/user/dashboard/financialOverview: Get enrollment statistics for a specific year.
-GET /api/user/dashboard/attendanceOverview: Get enrollment statistics.
-GET /api/user/dashboard/enrollmentOverview: Get enrollment statistics for a specific year.
+- GET /api/user/dashboard/ChildOverview: Get enrollment statistics for a specific year.
+- GET /api/user/dashboard/CareGiverOverview: Get enrollment statistics for a specific year.
+- GET /api/user/dashboard/financialOverview: Get enrollment statistics for a specific year.
+- GET /api/user/dashboard/attendanceOverview: Get enrollment statistics.
+- GET /api/user/dashboard/enrollmentOverview: Get enrollment statistics for a specific year.
 
-Directory Structure
+### Directory Structure
 ```
 React-Dashboard/
 │
