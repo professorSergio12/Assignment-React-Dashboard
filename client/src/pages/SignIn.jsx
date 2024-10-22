@@ -7,7 +7,7 @@ import {
   signInFailure,
   signInSuccess,
 } from "../redux/user/userSlice";
-
+import OAuth from '../components/OAuth'
 export default function SignIn() {
   const [formData, setformData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
@@ -106,6 +106,7 @@ export default function SignIn() {
                   "Continue to Your Dashboard"
                 )}
               </button>
+               <OAuth/>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don't have an account?{" "}
                 <Link
