@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import Footer from "./pages/Footer";
 
+
 function App() {
   return (
     <BrowserRouter>
